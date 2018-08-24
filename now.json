@@ -1,0 +1,7 @@
+{
+  "name": "v2.property.suneikii",
+  "alias": "v2.property.suneikii.now.sh",
+  "env": {
+    "NODE_ENV": "production"
+  }
+}
