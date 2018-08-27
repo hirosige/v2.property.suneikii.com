@@ -10,3 +10,4 @@ package-lock.json
 config.json
 *.log
 .env
+docs/*.xd
