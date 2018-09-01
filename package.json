@@ -25,10 +25,12 @@
     "uuid": "3.3.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.0.0",
     "@storybook/react": "^3.4.10",
     "babel-core": "^6.26.3",
     "babel-eslint": "^9.0.0",
     "babel-plugin-transform-flow-strip-types": "^6.22.0",
+    "babel-runtime": "^6.26.0",
     "eslint": "^5.5.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-flowtype": "^2.50.0",
@@ -36,6 +38,7 @@
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.11.1",
     "flow-bin": "^0.80.0",
+    "flow-status-webpack-plugin": "^0.1.7",
     "standard": "^12.0.1"
   },
   "scripts": {
