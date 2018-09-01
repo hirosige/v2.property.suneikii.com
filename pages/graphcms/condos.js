@@ -1,6 +1,8 @@
 import React from 'react';
 import { Query } from 'react-apollo';
+/* eslint-disable-next-line import/no-extraneous-dependencies */
 import gql from 'graphql-tag';
+/* eslint-disable-next-line import/no-extraneous-dependencies */
 import PropTypes from 'prop-types';
 import Counter from '../../components/counter';
 import securePage from '../../hocs/securePage';
@@ -13,38 +15,37 @@ const GET_USER = gql`
   }
 `;
 
-const Condos = () => {
-  return (
-    <div>
-      <Counter />
-      <Query query={GET_USER} ssr>
-        {(props) => {
-          if (props.loading) {
-            return 'Loading...';
-          } else {
-            const condos = props.data.condoes;
+const Condos = () => (
+  <div>
+    <Counter />
+    <Query query={GET_USER} ssr>
+      {(props) => {
+        if (props.loading) {
+          return 'Loading...';
 
-            return (
-              <div>
-                <ul>
-                  {
-                    condos.map((condo) => {
-                      return (
-                        <li key={condo.name}>
-                          <span className="badge">{ condo.name }</span>
-                        </li>
-                      );
-                    })
-                  }
-                </ul>
-              </div>
-            );
-          }
-        }}
-      </Query>
-    </div>
-  );
-};
+        /* exception for graphql */
+        /* eslint-disable-next-line no-else-return */
+        } else {
+          const condos = props.data.condoes;
+
+          return (
+            <div>
+              <ul>
+                {
+                  condos.map(condo => (
+                    <li key={condo.name}>
+                      <span className="badge">{ condo.name }</span>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
+          );
+        }
+      }}
+    </Query>
+  </div>
+);
 
 Condos.propTypes = {
   loading: PropTypes.bool,

@@ -1,11 +1,10 @@
 import React from 'react';
-
 /* eslint-disable-next-line import/no-extraneous-dependencies */
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import styled from 'styled-components';
-
 import defaultPage from '../hocs/defaultPage';
+import PSButton from '../components/button';
 
 const SecretContent = styled.div`
   background-color: #ecf0f1;
@@ -68,7 +67,10 @@ const Index = ({ isAuthenticated }) => (
   <div>
     {isAuthenticated && <SuperSecretDiv />}
     <Main>
-      <Heading>Hello, friend!</Heading>
+      <Heading>
+        Hello, friend!
+        <PSButton name="Hiroshige" />
+      </Heading>
       <Content>
         This is a super simple example of how to use&nbsp;
         {createLink('https://github.com/zeit/next.js', 'next.js')}

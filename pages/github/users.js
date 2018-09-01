@@ -1,11 +1,9 @@
 import React from 'react';
 import { Query } from 'react-apollo';
-
 /* eslint-disable-next-line import/no-extraneous-dependencies */
 import PropTypes from 'prop-types';
 /* eslint-disable-next-line import/no-extraneous-dependencies */
 import gql from 'graphql-tag';
-
 import Counter from '../../components/counter';
 import securePage from '../../hocs/securePage';
 
