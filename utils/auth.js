@@ -13,6 +13,8 @@ export const extractInfoFromHash = () => {
   if (!process.browser) {
     return undefined;
   }
+
+  /* eslint-disable-next-line camelcase */
   const { id_token, state } = getQueryParams();
   return { token: id_token, secret: state };
 };
@@ -49,9 +51,9 @@ export const getUserFromServerCookie = (req) => {
   return jwtDecode(jwt);
 };
 
-export const getUserFromLocalCookie = () => {
-  return Cookie.getJSON('user');
-};
+export const getUserFromLocalCookie = () => (
+  Cookie.getJSON('user')
+);
 
 export const setSecret = secret => Cookie.set('secret', secret);
 

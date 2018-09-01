@@ -6,18 +6,7 @@
     }],
     "react/jsx-filename-extension": [1, {
       "extensions": [".js", ".jsx"]
-    }],
-    "react/react-in-jsx-scope": "off",
-    "import/no-extraneous-dependencies": "off",
-    "arrow-body-style": "off",
-    "react/forbid-prop-types": "off",
-    "react/no-array-index-key": "off",
-    "global-require": "off",
-    "no-unused-vars": "off",
-    "max-len": "off",
-    "camelcase": "off",
-    "no-else-return": "off",
-    "react/jsx-one-expression-per-line": "off"
+    }]
   },
   "globals": {
     "window": true

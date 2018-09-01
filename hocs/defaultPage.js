@@ -1,10 +1,7 @@
 import React from 'react';
-
 import Head from 'next/head';
 import Router from 'next/router';
 import styled from 'styled-components';
-
-import ForkThis from '../components/ForkThis';
 import Header from '../components/Header';
 import { getUserFromServerCookie, getUserFromLocalCookie } from '../utils/auth';
 
@@ -18,7 +15,8 @@ const Main = styled.div`
 
 export default Page => class DefaultPage extends React.Component {
   static getInitialProps(ctx) {
-    const loggedUser = process.browser ? getUserFromLocalCookie() : getUserFromServerCookie(ctx.req);
+    const loggedUser = process.browser
+      ? getUserFromLocalCookie() : getUserFromServerCookie(ctx.req);
     const pageProps = Page.getInitialProps && Page.getInitialProps(ctx);
     return {
       ...pageProps,
@@ -50,7 +48,10 @@ export default Page => class DefaultPage extends React.Component {
       <div>
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
-          {cssFiles.map((c, i) => <link key={i} href={c} rel="stylesheet" />)}
+          {
+            /* eslint react/no-array-index-key: 0 */
+            cssFiles.map((c, i) => <link key={i} href={c} rel="stylesheet" />)
+          }
           <style>
             {`
             * {

@@ -1,8 +1,8 @@
 import React from 'react';
+/* eslint import/no-extraneous-dependencies: 0 */
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import styled from 'styled-components';
-
 import PSuneikiiAppBar from './app_bar';
 
 const AppHeader = styled.div`

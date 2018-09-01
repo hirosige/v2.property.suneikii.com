@@ -2,8 +2,9 @@ require('dotenv').config();
 
 const path = require('path');
 const Dotenv = require('dotenv-webpack');
-
 const withESLint = require('next-eslint');
+
+// eslint-disable-next-line import/no-extraneous-dependencies
 const FlowStatusWebpackPlugin = require('flow-status-webpack-plugin');
 
 module.exports = withESLint({

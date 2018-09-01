@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+/* eslint-disable-next-line import/no-extraneous-dependencies */
 import PropTypes from 'prop-types';
 import { increment, decrement } from '../actions';
 

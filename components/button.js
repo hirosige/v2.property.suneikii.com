@@ -10,7 +10,7 @@ function string(name: string): string {
 const PSButton = () => (
   <div>
     <Button variant="contained" color="primary">
-      {string('test')};
+      {string('test')}
     </Button>
   </div>
 );

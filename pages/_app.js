@@ -16,9 +16,10 @@ if (!IS_BROWSER) {
 
 const URI_ENDPOINT = 'https://api.github.com/graphql';
 
-const makeStore = (initialState, options) => {
-  return createStore(reducer, initialState);
-};
+/* eslint-disable-next-line no-unused-vars */
+const makeStore = (initialState, options) => (
+  createStore(reducer, initialState)
+);
 
 function createClient(initialState) {
   return new ApolloClient({

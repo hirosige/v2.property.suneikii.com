@@ -1,10 +1,10 @@
 import React from 'react';
+/* eslint import/no-extraneous-dependencies: 0 */
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import PSButton from './button';
 
 const styles = {
   root: {
@@ -28,7 +28,9 @@ const PSunikiiAppBar = (props) => {
 };
 
 PSunikiiAppBar.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.shape({
+    root: PropTypes.string,
+  }).isRequired,
 };
 
 export default withStyles(styles)(PSunikiiAppBar);

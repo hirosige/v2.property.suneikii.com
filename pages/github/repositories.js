@@ -1,6 +1,8 @@
 import React from 'react';
 import { Query } from 'react-apollo';
+/* eslint-disable-next-line import/no-extraneous-dependencies */
 import gql from 'graphql-tag';
+/* eslint-disable-next-line import/no-extraneous-dependencies */
 import PropTypes from 'prop-types';
 import securePage from '../../hocs/securePage';
 
@@ -19,62 +21,63 @@ const GET_REPOS = gql`
   }
 `;
 
-const Repositories = () => {
-  return (
-    <Query query={GET_REPOS} ssr>
-      {(props) => {
-        if (props.loading) {
-          return 'Loading...';
-        } else {
-          const repos = props.data.viewer.repositories.edges;
+const Repositories = () => (
+  <Query query={GET_REPOS} ssr>
+    {(props) => {
+      if (props.loading) {
+        return 'Loading...';
 
-          return (
-            <div>
-              <ul>
-                {repos.map((repo) => {
-                  return (
-                    <li key={repo.node.id}>
-                      <span className="badge">{ repo.node.name }</span>
-                      { repo.node.id }
-                    </li>
-                  );
-                })}
-              </ul>
+      /* exception for graphql */
+      /* eslint-disable-next-line no-else-return */
+      } else {
+        const repos = props.data.viewer.repositories.edges;
 
-              <style jsx>
-                {`
-                  ul {
-                    list-style: none;
-                  }
+        return (
+          <div>
+            <ul>
+              {
+                repos.map(repo => (
+                  <li key={repo.node.id}>
+                    <span className="badge">{ repo.node.name }</span>
+                    { repo.node.id }
+                  </li>
+                ))
+              }
+            </ul>
 
-                  li {
-                    font-size: 1.2rem;
-                    background: #444444;
-                    color: #ffffff;
-                    padding: 10px;
-                    width: 500px;
-                  }
+            <style jsx>
+              {`
+                ul {
+                  list-style: none;
+                }
 
-                  li + li {
-                    border-top: 1px solid #ffffff;
-                  }
+                li {
+                  font-size: 1.2rem;
+                  background: #444444;
+                  color: #ffffff;
+                  padding: 10px;
+                  width: 500px;
+                }
 
-                  .badge {
-                    border: 1px solid #444444;
-                    padding: 3px 5px 3px;
-                    background: #ffffff;
-                    color: #444444;
-                    font-weight: bold;
-                  }
-                `}
-              </style>
-            </div>
-          );
-        }
-      }}
-    </Query>
-  );
-};
+                li + li {
+                  border-top: 1px solid #ffffff;
+                }
+
+                .badge {
+                  border: 1px solid #444444;
+                  padding: 3px 5px 3px;
+                  background: #ffffff;
+                  color: #444444;
+                  font-weight: bold;
+                }
+              `}
+            </style>
+          </div>
+        );
+      }
+    }}
+  </Query>
+);
 
 Repositories.propTypes = {
   loading: PropTypes.bool,
