@@ -14,9 +14,6 @@ const App = styled.div`
 `;
 
 const Main = styled.div`
-  max-width: 1024px;
-  margin: 0 auto;
-  padding: 30px;
 `;
 
 export default Page => class DefaultPage extends React.Component {
@@ -65,9 +62,8 @@ export default Page => class DefaultPage extends React.Component {
             }
             `}
           </style>
-          <title>Next.js + auth0</title>
+          <title>Suneikii Property</title>
         </Head>
-        <ForkThis />
         <App>
           <Main>
             <Header {...this.props} />

@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import Link from 'next/link';
 import styled from 'styled-components';
 
+import PSuneikiiAppBar from './app_bar';
+
 const AppHeader = styled.div`
   display: flex;
   margin-bottom: 20px;
@@ -39,15 +41,18 @@ const getAllowedLinks = isAuthenticated => links
   .filter(l => !isAuthenticated || (isAuthenticated && !l.anonymousOnly));
 
 const Header = ({ isAuthenticated, currentUrl }) => (
-  <AppHeader>
-    {getAllowedLinks(isAuthenticated).map(l => (
-      <Link prefetch key={l.href} href={l.href}>
-        <HeaderLink isActive={currentUrl === l.href}>
-          {l.text}
-        </HeaderLink>
-      </Link>
-    ))}
-  </AppHeader>
+  <div>
+    <PSuneikiiAppBar />
+    <AppHeader>
+      {getAllowedLinks(isAuthenticated).map(l => (
+        <Link prefetch key={l.href} href={l.href}>
+          <HeaderLink isActive={currentUrl === l.href}>
+            {l.text}
+          </HeaderLink>
+        </Link>
+      ))}
+    </AppHeader>
+  </div>
 );
 
 Header.propTypes = {

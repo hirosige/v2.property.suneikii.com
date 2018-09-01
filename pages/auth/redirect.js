@@ -7,7 +7,6 @@ export default class Redirect extends React.Component {
     const { token, secret } = extractInfoFromHash();
 
     if (!checkSecret(secret) || !token) {
-      
       // eslint-disable-next-line
       console.error('Something happened with the Sign In request');
     }

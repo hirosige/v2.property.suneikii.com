@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Button from '@material-ui/core/Button';
 
 import defaultPage from '../hocs/defaultPage';
 
@@ -20,6 +21,9 @@ const About = () => (
     <Heading>Nothing to see here.</Heading>
     <Content>
       This is just a random page.
+      <Button variant="contained" color="primary">
+        Material!
+      </Button>
     </Content>
   </div>
 );
