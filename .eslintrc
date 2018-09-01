@@ -1,0 +1,32 @@
+{
+  "rules": {
+    "no-param-reassign": [2, {
+      "props": false
+    }],
+    "react/jsx-filename-extension": [1, {
+      "extensions": [".js", ".jsx"]
+    }],
+    "react/react-in-jsx-scope": "off",
+    "import/no-extraneous-dependencies": "off",
+    "arrow-body-style": "off",
+    "react/forbid-prop-types": "off",
+    "react/no-array-index-key": "off",
+    "global-require": "off",
+    "no-unused-vars": "off",
+    "max-len": "off",
+    "camelcase": "off"
+  },
+  "globals": {
+    "window": true
+  },
+  "extends": [
+    "plugin:flowtype/recommended",
+    "airbnb"
+  ],
+  "plugins": [
+    "flowtype",
+    "react",
+    "jsx-a11y",
+    "import"
+  ]
+}

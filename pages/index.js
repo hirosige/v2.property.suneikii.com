@@ -1,10 +1,10 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import Link from 'next/link'
-import styled from 'styled-components'
+import Link from 'next/link';
+import styled from 'styled-components';
 
-import defaultPage from '../hocs/defaultPage'
+import defaultPage from '../hocs/defaultPage';
 
 const SecretContent = styled.div`
   background-color: #ecf0f1;
@@ -20,23 +20,26 @@ const SecretContent = styled.div`
   font-size: 40px;
   font-weight: 100;
   margin-bottom: 30px;
-`
+`;
 
 const Main = styled.div`
   max-width: 750px;
   margin: 0 auto;
   text-align: center
-`
+`;
+
 const Heading = styled.h1`
   font-size: 40px;
   font-weight: 200;
   line-height: 40px
-`
+`;
+
 const Content = styled.p`
   font-size: 20px;
   font-weight: 200;
   line-height: 30px
-`
+`;
+
 const ContentLink = styled.a`
   color: #333;
   padding-bottom: 2px;
@@ -48,17 +51,17 @@ const ContentLink = styled.a`
   &:hover {
     border-bottomColor: #333;
   }
-`
+`;
 
 const SuperSecretDiv = () => (
   <SecretContent>
     This is a super secret div.
   </SecretContent>
-)
+);
 
 const createLink = (href, text) => (
   <ContentLink href={href}>{text}</ContentLink>
-)
+);
 
 const Index = ({ isAuthenticated }) => (
   <div>
@@ -66,24 +69,32 @@ const Index = ({ isAuthenticated }) => (
     <Main>
       <Heading>Hello, friend!</Heading>
       <Content>
-        This is a super simple example of how to use {createLink('https://github.com/zeit/next.js', 'next.js')} and {createLink('https://auth0.com/', 'Auth0')} together.
+        This is a super simple example of how to use&nbsp;
+        {createLink('https://github.com/zeit/next.js', 'next.js')}
+        &nbsp;and&nbsp;
+        {createLink('https://auth0.com/', 'Auth0')}
+        &nbsp;together.
       </Content>
       {!isAuthenticated && (
         <Content>
-          You're not authenticated yet. Maybe you want to <Link href='/auth/sign-in'>{createLink('/auth/sign-in', 'sign in')}</Link> and see what happens?
+          You&amp;re not authenticated yet. Maybe you want to
+          <Link href="/auth/sign-in">{createLink('/auth/sign-in', 'sign in')}</Link>
+          and see what happens?
         </Content>
       )}
       {isAuthenticated && (
         <Content>
-          Now that you're authenticated, maybe you should try going to our <Link href='/secret'>{createLink('/secret', 'super secret page')}</Link>!
+          Now that you&amp;re authenticated, maybe you should try going to our
+          <Link href="/secret">{createLink('/secret', 'super secret page')}</Link>
+          !
         </Content>
       )}
     </Main>
   </div>
-)
+);
 
 Index.propTypes = {
-  isAuthenticated: PropTypes.bool.isRequired
-}
+  isAuthenticated: PropTypes.bool.isRequired,
+};
 
-export default defaultPage(Index)
+export default defaultPage(Index);
