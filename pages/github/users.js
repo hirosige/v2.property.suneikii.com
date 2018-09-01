@@ -1,8 +1,9 @@
-import React from "react";
-import { Query } from "react-apollo";
-import gql from "graphql-tag";
-import Counter from "../../components/counter"
-import securePage from '../../hocs/securePage'
+import React from 'react';
+import { Query } from 'react-apollo';
+import PropTypes from 'prop-types';
+import gql from 'graphql-tag';
+import Counter from '../../components/counter';
+import securePage from '../../hocs/securePage';
 
 const GET_USER = gql`
   {
@@ -16,17 +17,31 @@ const Users = () => {
   return (
     <div>
       <Counter />
-      <Query query={GET_USER} ssr={true}>
-        {props => {
+      <Query query={GET_USER} ssr>
+        {(props) => {
           if (props.loading) {
-            return "Loading...";
-          } else {
-            return `Hello, ${props.data.viewer.login}`;
+            return 'Loading...';
           }
+
+          return `Hello, ${props.data.viewer.login}`;
         }}
       </Query>
     </div>
   );
+};
+
+Users.propTypes = {
+  loading: PropTypes.bool,
+  data: PropTypes.shape({
+    viewer: PropTypes.shape({
+      login: PropTypes.string,
+    }),
+  }),
+};
+
+Users.defaultProps = {
+  loading: false,
+  data: {},
 };
 
 export default securePage(Users);

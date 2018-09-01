@@ -1,19 +1,21 @@
-import React from 'react'
-import Link from 'next/link'
-import styled from 'styled-components'
+import React from 'react';
+import Link from 'next/link';
+import styled from 'styled-components';
 
 const Heading = styled.h1`
   font-size: 50px;
   font-weight: 200;
   line-height: 40px;
   color: #e74c3c;
-`
+`;
+
 const Content = styled.p`
   font-size: 30px;
   font-weight: 200;
   line-height: 40px;
   color: #e74c3c;
-`
+`;
+
 const ContentLink = styled.a`
   color: #e74c3c;
   padding-bottom: 2px;
@@ -25,13 +27,15 @@ const ContentLink = styled.a`
   &:hover {
     border-bottom-color: #e74c3c;
   }
-`
+`;
 
 export default () => (
   <div>
-    <Heading>You can't see this!</Heading>
+    <Heading>You can&amp;t see this!</Heading>
     <Content>
-      You're not authenticated yet. Maybe you want to <Link href='/auth/sign-in'><ContentLink>sign in</ContentLink></Link> and see what happens?
+      You&amp;re not authenticated yet. Maybe you want to&nbsp;
+      <Link href="/auth/sign-in"><ContentLink>sign in</ContentLink></Link>
+      &nbsp;and see what happens?&nbsp;
     </Content>
   </div>
-)
+);

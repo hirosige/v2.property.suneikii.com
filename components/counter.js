@@ -1,18 +1,28 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { increment, decrement } from '../actions';
 
-class Counter extends React.Component {
-  render() {
-    return (
-      <div>
-        <h2>{this.props.counter}</h2>
-        <button onClick={() => this.props.dispatch(increment())}> + </button>
-        <button onClick={() => this.props.dispatch(decrement())}> - </button>
-      </div>
-    );
-  }
-}
+const Counter = (props) => {
+  const { counter, dispatch } = props;
+
+  return (
+    <div>
+      <h2>{ counter }</h2>
+      <button type="button" onClick={() => dispatch(increment())}> + </button>
+      <button type="button" onClick={() => dispatch(decrement())}> - </button>
+    </div>
+  );
+};
+
+Counter.propTypes = {
+  counter: PropTypes.number,
+  dispatch: PropTypes.func.isRequired,
+};
+
+Counter.defaultProps = {
+  counter: 0,
+};
 
 function mapStateToProps({ counter }) {
   return { counter };

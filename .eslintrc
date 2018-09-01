@@ -14,7 +14,9 @@
     "global-require": "off",
     "no-unused-vars": "off",
     "max-len": "off",
-    "camelcase": "off"
+    "camelcase": "off",
+    "no-else-return": "off",
+    "react/jsx-one-expression-per-line": "off"
   },
   "globals": {
     "window": true
