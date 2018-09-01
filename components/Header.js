@@ -33,7 +33,7 @@ const links = [
   { href: '/about', text: 'About' },
   { href: '/secret', text: 'Top Secret', authRequired: true },
   { href: '/auth/sign-in', text: 'Sign In', anonymousOnly: true },
-  { href: '/auth/sign-off', text: 'Sign Off', authRequired: true },
+  { href: '/auth/sign-out', text: 'Sign Out', authRequired: true },
 ];
 
 const getAllowedLinks = isAuthenticated => links
