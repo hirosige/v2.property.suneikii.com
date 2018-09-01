@@ -3,7 +3,9 @@ require('dotenv').config()
 const path = require('path')
 const Dotenv = require('dotenv-webpack')
 
-module.exports = {
+const withESLint = require('next-eslint')
+
+module.exports = withESLint({
   webpack: (config) => {
     config.plugins = config.plugins || []
 
@@ -18,4 +20,4 @@ module.exports = {
 
     return config
   }
-}
+})

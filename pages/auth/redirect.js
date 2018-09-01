@@ -5,10 +5,10 @@ import { setToken, checkSecret, extractInfoFromHash } from '../../utils/auth';
 export default class Redirect extends React.Component {
   componentDidMount() {
     const { token, secret } = extractInfoFromHash();
-    console.log(token);
-    console.log(secret);
 
     if (!checkSecret(secret) || !token) {
+      
+      // eslint-disable-next-line
       console.error('Something happened with the Sign In request');
     }
     setToken(token);
