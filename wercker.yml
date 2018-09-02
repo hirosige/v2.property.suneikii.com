@@ -10,9 +10,9 @@ build:
   steps:
     - npm-install
     - npm-test
+    - npm-flow
 
     - script:
-        name: echo nodejs information
+        name: eslint check
         code: |
-          echo "node version $(node -v) running"
-          echo "npm version $(npm -v) running"
+          $(node bin)/eslint pages
