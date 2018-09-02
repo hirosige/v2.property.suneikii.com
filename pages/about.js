@@ -18,7 +18,7 @@ const Content = styled.p`
 
 const About = () => (
   <div>
-    <Heading>Nothing to see here. Deployed from Wercker to Netlify!!! </Heading>
+    <Heading>Nothing to see here. Deployed from Wercker to Netlify with Auth0!!! </Heading>
     <Content>
       This is just a random page.
       <Button variant="contained" color="primary">
