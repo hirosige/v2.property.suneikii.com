@@ -40,6 +40,10 @@ export const unsetToken = () => {
 };
 
 export const getUserFromServerCookie = (req) => {
+  if (typeof req.headers === 'undefined') {
+    return undefined;
+  }
+
   if (!req.headers.cookie) {
     return undefined;
   }

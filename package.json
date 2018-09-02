@@ -56,6 +56,8 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
+    "export": "next export",
+    "build:export": "next build && next export",
     "start": "next start",
     "flow": "flow",
     "lint": "standard --fix",

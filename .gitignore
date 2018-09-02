@@ -12,3 +12,4 @@ config.json
 .env
 docs/*.xd
 coverage
+out
