@@ -1,0 +1,18 @@
+box: node
+
+# services:
+    # - postgres
+    # https://devcenter.wercker.com/administration/services/examples/postgresql/
+
+    # - mongo
+    # https://devcenter.wercker.com/administration/services/examples/mongodb/
+build:
+  steps:
+    - npm-install
+    - npm-test
+
+    - script:
+        name: echo nodejs information
+        code: |
+          echo "node version $(node -v) running"
+          echo "npm version $(npm -v) running"
