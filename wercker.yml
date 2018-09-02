@@ -34,8 +34,8 @@ deploy:
           npm run build:export
 
     - script:
-        name: deploy surge
+        name: deploy netlify
         code: |
-          npm i -g surge
-          sh surge.sh
-          surge out
+          npm install netlify-cli -g
+          node setup_netlify.js
+          netlify deploy
