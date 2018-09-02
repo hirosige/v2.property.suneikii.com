@@ -20,7 +20,6 @@ build:
         name: eslint check
         code: |
           npm run eslint:components
-          npm run eslint:flow-typed
           npm run eslint:hocs
           npm run eslint:pages
           npm run eslint:reducers

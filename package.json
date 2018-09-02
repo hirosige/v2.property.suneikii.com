@@ -62,7 +62,6 @@
     "flow": "flow",
     "eslint:actions": "eslint actions",
     "eslint:components": "eslint components",
-    "eslint:flow-typed": "eslint flow-typed",
     "eslint:hocs": "eslint hocs",
     "eslint:pages": "eslint pages",
     "eslint:reducers": "eslint reducers",
