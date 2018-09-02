@@ -32,3 +32,9 @@ deploy:
         name: build & export
         code: |
           npm run build:export
+
+    - script:
+        name: deploy surge
+        code: |
+          npm i -g surge
+          surge out v2.test.suneikii.com
