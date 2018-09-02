@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`With Snapshot Testing App shows "Hello world!" 1`] = `
+<div>
+  <style
+    jsx={true}
+  >
+    
+        p {
+          color: red;
+        }
+      
+  </style>
+  <p>
+    Hello World!
+  </p>
+</div>
+`;

@@ -42,7 +42,7 @@ const getAllowedLinks = isAuthenticated => links
 
 const Header = ({ isAuthenticated, currentUrl }) => (
   <div>
-    <PSuneikiiAppBar />
+    <PSuneikiiAppBar classes={{ root: 'root' }} />
     <AppHeader>
       {getAllowedLinks(isAuthenticated).map(l => (
         <Link prefetch key={l.href} href={l.href}>

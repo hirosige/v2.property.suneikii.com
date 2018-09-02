@@ -19,7 +19,8 @@ const PSButton = (props: Props) => {
       <Button variant="contained" color="primary" className="test">
         {getName(name)}
       </Button>
-      <button type="button" className="test">Styled JSX</button>
+      <button type="button" className="test">{getName(name)}</button>
+      <div className="desc">in Testing</div>
 
       <style jsx>
         {`
