@@ -60,7 +60,7 @@
     "build:export": "next build && next export",
     "start": "next start",
     "flow": "flow",
-    "lint": "standard --fix",
+    "eslint:pages": "eslint pages",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "test": "NODE_ENV=test jest",
