@@ -37,4 +37,5 @@ deploy:
         name: deploy surge
         code: |
           npm i -g surge
-          surge out v2.test.suneikii.com
+          sh surge.sh
+          surge out
