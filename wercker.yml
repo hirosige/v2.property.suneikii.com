@@ -25,3 +25,10 @@ build:
           npm run eslint:reducers
           npm run eslint:stories
           npm run eslint:utils
+
+deploy:
+  steps:
+    - script:
+        name: build & export
+        code: |
+          npm run build:export
