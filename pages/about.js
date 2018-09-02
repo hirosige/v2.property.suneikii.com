@@ -18,7 +18,7 @@ const Content = styled.p`
 
 const About = () => (
   <div>
-    <Heading>Nothing to see here.</Heading>
+    <Heading>Nothing to see here. Deployed from Wercker!!! </Heading>
     <Content>
       This is just a random page.
       <Button variant="contained" color="primary">
