@@ -130,17 +130,17 @@ surge
 
 ##### 3-1. Choose the directry contains static files
 
-![](docs/assets/README/surge-2.png =300x80)
+![](./docs/assets/README/surge-2.png =300x80)
 
 ##### 3-2. Choose Domain (if you dont care custom domain, press enter)
 
-![](docs/assets/README/surge-2.png =300x80)
+![](./docs/assets/README/surge-2.png =300x80)
 
 ##### 3-3. Your app deployed successfully.
 
-![](docs/assets/README/surge-3.png =500x120)
+![](./docs/assets/README/surge-3.png =500x120)
 
 ##### 3-4. Open displayed url on browser
 ※ `daffy-trees.surge.sh` in this example.
 
-![](docs/assets/README/surge-4.png =800x)
+![](./docs/assets/README/surge-4.png =800x)
