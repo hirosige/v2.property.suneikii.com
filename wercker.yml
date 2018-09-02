@@ -10,7 +10,11 @@ build:
   steps:
     - npm-install
     - npm-test
-    - npm-flow
+
+    - script:
+        name: flow-type check
+        code: |
+          npm run flow
 
     - script:
         name: eslint check
