@@ -14,7 +14,7 @@ const Secret = ({ loggedUser }) => (
   <div>
     <Content>
       Hi&nbsp;
-      <strong>{loggedUser.email}</strong>
+      <strong>{loggedUser.sub.split('|')[1]}</strong>
       &nbsp;. This is a super secure page! Try loading this page again using the&nbsp;
       incognito/private mode of your browser.&nbsp;
     </Content>
