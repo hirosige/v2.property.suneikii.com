@@ -14,10 +14,11 @@ const Main = styled.div`
 `;
 
 export default Page => class DefaultPage extends React.Component {
-  static getInitialProps(ctx) {
+  static async getInitialProps(ctx) {
     const loggedUser = process.browser
       ? getUserFromLocalCookie() : getUserFromServerCookie(ctx.req);
 
+    console.log(!!loggedUser);
     console.log(loggedUser);
     const pageProps = Page.getInitialProps && Page.getInitialProps(ctx);
     return {

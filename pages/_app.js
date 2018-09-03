@@ -14,6 +14,8 @@ if (!IS_BROWSER) {
   global.fetch = fetch;
 }
 
+console.log('_app.js');
+
 const URI_ENDPOINT = 'https://api.github.com/graphql';
 
 /* eslint-disable-next-line no-unused-vars */
