@@ -41,6 +41,7 @@ export const unsetToken = () => {
 
 export const getUserFromServerCookie = (req) => {
   if (typeof req.headers === 'undefined') {
+    console.log('ここに来る');
     return undefined;
   }
 
