@@ -27,15 +27,8 @@ build:
           npm run eslint:utils
 
 deploy:
-  steps:
-    - script:
-        name: build & export
-        code: |
-          npm run build:export
-
-    - script:
-        name: deploy netlify
-        code: |
-          npm install netlify-cli -g
-          node setup_netlify.js
-          netlify deploy
+    steps:
+        - heroku-deploy:
+            key: $HEROKU_KEY
+            user: $HEROKU_USER
+            app-name: $HEROKU_APP_NAME
