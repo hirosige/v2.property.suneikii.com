@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import styled from 'styled-components';
+import PSunikiiAppBar from './app_bar';
 
 const AppHeader = styled.div`
   display: flex;
@@ -41,6 +42,7 @@ const getAllowedLinks = isAuthenticated => links
 
 const Header = ({ isAuthenticated, currentUrl }) => (
   <div>
+    <PSunikiiAppBar />
     <AppHeader>
       {getAllowedLinks(isAuthenticated).map(l => (
         <Link prefetch key={l.href} href={l.href}>
