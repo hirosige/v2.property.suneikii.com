@@ -43,6 +43,12 @@ export default Page => class DefaultPage extends React.Component {
     }
   }
 
+  handleKeyUp = (evt) => {
+    if (evt.keyCode === 13) {
+      console.log('entered');
+    }
+  }
+
   render() {
     const cssFiles = [
       'https://unpkg.com/normalize.css@5.0.0/normalize.css',
