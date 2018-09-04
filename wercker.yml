@@ -1,7 +1,7 @@
 box: node
 
 # services:
-    # - postgresss
+    # - postgressss
     # https://devcenter.wercker.com/administration/services/examples/postgresql/
 
     # - mongo
