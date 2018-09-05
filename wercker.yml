@@ -27,8 +27,8 @@ build:
           npm run eslint:utils
 
 deploy:
-    steps:
-        - heroku-deploy:
-            key: $HEROKU_KEY
-            user: $HEROKU_USER
-            app-name: $HEROKU_APP_NAME
+  steps:
+    - heroku-deploy:
+        key: $HEROKU_KEY
+        user: $HEROKU_USER
+        app-name: $HEROKU_APP_NAME
