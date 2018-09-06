@@ -31,13 +31,11 @@ const Condos = () => (
           return (
             <div>
               <ul>
-                {
-                  condos.map(condo => (
-                    <li key={condo.name}>
-                      <span className="badge">{ condo.name }</span>
-                    </li>
-                  ))
-                }
+                {condos.map(condo => (
+                  <li key={condo.name}>
+                    <span className="badge">{ condo.name }</span>
+                  </li>
+                ))}
               </ul>
             </div>
           );

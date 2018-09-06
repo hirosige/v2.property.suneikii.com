@@ -14,8 +14,6 @@ if (!IS_BROWSER) {
   global.fetch = fetch;
 }
 
-console.log('_app.js');
-
 const URI_ENDPOINT = 'https://api.github.com/graphql';
 
 /* eslint-disable-next-line no-unused-vars */
@@ -41,7 +39,6 @@ const client = createClient();
 
 class PropertySuneikii extends App {
   static async getInitialProps({ Component, ctx }) {
-    console.log(ctx);
     ctx.store.dispatch({ type: 'FOO', payload: 'foo' });
     const pageProps = Component.getInitialProps ? await Component.getInitialProps(ctx) : {};
 

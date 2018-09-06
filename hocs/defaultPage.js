@@ -18,8 +18,6 @@ export default Page => class DefaultPage extends React.Component {
     const loggedUser = process.browser
       ? getUserFromLocalCookie() : getUserFromServerCookie(ctx.req);
 
-    console.log(!!loggedUser);
-    console.log(loggedUser);
     const pageProps = Page.getInitialProps && Page.getInitialProps(ctx);
     return {
       ...pageProps,
@@ -40,12 +38,6 @@ export default Page => class DefaultPage extends React.Component {
   logout = (eve) => {
     if (eve.key === 'logout') {
       Router.push(`/?logout=${eve.newValue}`);
-    }
-  }
-
-  handleKeyUp = (evt) => {
-    if (evt.keyCode === 13) {
-      console.log('entered');
     }
   }
 

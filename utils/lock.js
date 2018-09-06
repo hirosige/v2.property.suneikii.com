@@ -20,6 +20,11 @@ const getOptions = (container) => {
   setSecret(secret);
   return {
     container,
+    languageDictionary: {
+      emailInputPlaceholder: 'something@youremail.com',
+      title: 'SUNEIKII. LOGIN',
+      primaryColor: '#31324F',
+    },
     closable: false,
     auth: {
       responseType: 'token id_token',
@@ -27,6 +32,22 @@ const getOptions = (container) => {
       params: {
         scope: 'openid profile email',
         state: secret,
+      },
+    },
+    theme: {
+      logo: 'https://s3-ap-southeast-1.amazonaws.com/suneikii.com/property.suneikii.png',
+      primaryColor: '#2196F3',
+      authButtons: {
+        testConnection: {
+          displayName: 'Test Conn',
+          primaryColor: '#b7b7b7',
+          foregroundColor: '#000000',
+          icon: 'http://example.com/icon.png',
+        },
+        testConnection2: {
+          primaryColor: '#000000',
+          foregroundColor: '#ffffff',
+        },
       },
     },
   };
