@@ -1,5 +1,7 @@
 import React from 'react';
 /* eslint import/no-extraneous-dependencies: 0 */
+import Link from 'next/link';
+import styled from 'styled-components';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -9,10 +11,25 @@ import MenuIcon from '@material-ui/icons/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
-import Button from '@material-ui/core/Button';
-import Link from 'next/link';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+
+const HeaderLink = styled.a`
+  margin-right: 20px;
+  font-size: 14px;
+  color: ${p => (p.isActive ? '#333' : '#999')};
+  text-decoration: none;
+  text-transform: uppercase;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  border-top: 1px solid ${p => (p.isActive ? '#333' : 'transpåarent')};
+  border-bottom: 1px solid ${p => (p.isActive ? '#333' : 'transparent')};
+  transition: color .25s;
+  font-weight: isActive ? '600' : '400';
+  
+  &:hover {
+    color: #333;
+  }
+`;
 
 const styles = {
   root: {
@@ -22,31 +39,30 @@ const styles = {
     flexGrow: 1,
   },
   menuButton: {
-    margin: 0,
+    marginLeft: -12,
+    marginRight: 20,
   },
 };
 
-const StyledButton = styled(Button)`
-   && {
-    color: #fff;
-    border-bottom: 1px solid #fff;
-   }
-`;
+const links = [
+  { href: '/', text: 'Home' },
+  { href: '/about', text: 'About' },
+  { href: '/secret', text: 'Top Secret', authRequired: true },
+  { href: '/auth/sign-in', text: 'Sign In', anonymousOnly: true },
+  { href: '/auth/sign-out', text: 'Sign Out', authRequired: true },
+];
 
-const BurgerBtn = styled(IconButton)`
-  && {
-    margin-right: 10px;
-  }
-`;
+const getAllowedLinks = isAuthenticated => links
+  .filter(l => !l.authRequired || (l.authRequired && isAuthenticated))
+  .filter(l => !isAuthenticated || (isAuthenticated && !l.anonymousOnly));
 
 class Header extends React.Component {
   state = {
     anchorEl: null,
   };
 
-  static getInitialProps({ props, isAuthenticated, currentUrl }) {
+  static getInitialProps({ isAuthenticated, currentUrl }) {
     return {
-      props,
       isAuthenticated,
       currentUrl,
     };
@@ -57,10 +73,11 @@ class Header extends React.Component {
   handleClose = () => this.setState({ anchorEl: null });
 
   render() {
+    const { classes } = this.props;
     const { anchorEl } = this.state;
     const {
       isAuthenticated,
-      classes,
+      currentUrl,
     } = this.props;
     const open = Boolean(anchorEl);
 
@@ -68,17 +85,19 @@ class Header extends React.Component {
       <div className={classes.root}>
         <AppBar position="static">
           <Toolbar>
-            <BurgerBtn color="inherit" aria-label="Menu">
+            <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
               <MenuIcon />
-            </BurgerBtn>
+            </IconButton>
             <Typography variant="title" color="inherit">
               SUNEIKII.
             </Typography>
-            {!isAuthenticated && (
-              <Link prefetch key="/auth/sign-in" href="/auth/sign-in">
-                <StyledButton>Sign In</StyledButton>
+            {getAllowedLinks(isAuthenticated).map(l => (
+              <Link prefetch key={l.href} href={l.href}>
+                <HeaderLink isActive={currentUrl === l.href}>
+                  {l.text}
+                </HeaderLink>
               </Link>
-            )}
+            ))}
             {isAuthenticated && (
               <div>
                 <IconButton
@@ -105,9 +124,6 @@ class Header extends React.Component {
                 >
                   <MenuItem onClick={this.handleClose}>Profile</MenuItem>
                   <MenuItem onClick={this.handleClose}>My account</MenuItem>
-                  <Link prefetch key="/auth/sign-in" href="/auth/sign-out">
-                    <MenuItem onClick={this.handleClose}>Sign Out</MenuItem>
-                  </Link>
                 </Menu>
               </div>
             )}
@@ -132,6 +148,7 @@ Header.propTypes = {
     }).isRequired,
   }).isRequired,
   isAuthenticated: PropTypes.bool.isRequired,
+  currentUrl: PropTypes.string.isRequired,
 };
 
 export default withStyles(styles)(Header);

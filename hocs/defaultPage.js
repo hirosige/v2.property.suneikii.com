@@ -19,6 +19,7 @@ export default Page => class DefaultPage extends React.Component {
       ? getUserFromLocalCookie() : getUserFromServerCookie(ctx.req);
 
     const pageProps = Page.getInitialProps && Page.getInitialProps(ctx);
+
     return {
       ...pageProps,
       loggedUser,
